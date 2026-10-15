@@ -48,9 +48,13 @@ while cap.isOpened():
             cv.circle(frame, p, 4, (0, 0, 255), -1)
 
         point = hand_landmarks[0]  # cổ tay
-        print(f"{point.x} : {point.y")
+        print(f"{point.x} : {point.y}")
 
     cv.imshow("frame", cv.flip(frame,1))
+
+    if cv.getWindowProperty("frame", cv.WND_PROP_VISIBLE) < 1:
+        break
+
     if cv.waitKey(1) == ord("q"):
         break
 
